@@ -1,0 +1,10 @@
+<% provide(:title, @user.name) %>
+<% provide(:head_quote, 'Profile') %>       
+<td colspan="2" rowspan="2" align="left" valign="top"><p class="style24">You are here <%= link_to "Your Profile",    '#' %> . </p>
+     <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    
+<%= @user.name %>, <%= @user.email %>
+      </tr>

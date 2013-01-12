@@ -1,0 +1,11 @@
+<% if @user.errors.any? %>
+  <p style="color: red">
+  	
+      The form contains <%= pluralize(@user.errors.count, "error") %>.<br/>
+    
+    <% @user.errors.full_messages.each do |msg| %>
+      * <%= msg %><br/>
+    <% end %>
+    
+<% end %>
+</p>

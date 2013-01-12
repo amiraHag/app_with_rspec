@@ -4,83 +4,86 @@
     <title>Car Website |<%= yield(:title) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <link href="/css/style.css" rel="stylesheet" />
-
-<style type="text/css">
-<!--
-a:link {
-	color: #FFFFFF;
-	text-decoration: none;
-}
-a:visited {
-	text-decoration: none;
-	color: #FFFFFF;
-}
-a:hover {
-	text-decoration: underline;
-	color: #0099FF;
-}
-a:active {
-	text-decoration: none;
-	color: #FFFFFF;
-}
-.style21 {
-	font-size: 24px;
-	color: #FFFFFF;
-}
-.style22 {
-	color: #FFFFFF;
-	font-size: 18px;
-}
-.style23 {color: #FFFFFF}
-.style24 {color: #663366}
-.style13 {	color: #FFFFFF;
-	font-family: "Times New Roman", Times, serif;
-	font-size: 16px;
-}
-.style41 {color: #333333; }
--->
-</style>		
+  <%= csrf_meta_tags %>		
 </head>
-<body background="/images/bgp_ornament.png" >
-<table width="800" border="0" align="center" bordercolor="#F0F0F0" background="/images/backgroud.jpg">
+<body background="/assets/bgp_ornament.png" >
+<table width="800" border="0" align="center" bordercolor="#F0F0F0" background="/assets/backgroud.jpg">
   <tr>
-    <th width="180" height="105" valign="top" scope="row"><img src="/images/ferrari.png" alt="car logo" width="179" height="103"></th>
-    <td width="486" height="105" align="left" valign="top" background="/images/bryllup_4.png"><p>&nbsp;</p>
+    <th width="180" height="105" valign="top" scope="row">
+    	<%= image_tag("ferrari.png", alt:"car logo", width:"179", height:"103") %>
+    	</th>
+    <td width="486" height="105" align="left" valign="top" background="/assets/bryllup_4.png">
         <blockquote >
         <p align="left" class="style21"><%= yield(:head_quote) %></p> 
-        </blockquote></td>
-    <td width="120" height="105" align="left" valign="top" background="/images/bryllup_4.png"><p class="style23">Sign In __Register</p>
+         <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+        </blockquote>
+        </td>
+    <td width="120" height="105" align="left" valign="top" background="/assets/bryllup_4.png">
+    	<p class="style23">
+    		<%= link_to "Sign In",    home_path %> <br/>
+    		<%= link_to "Register",    register_path %></p>
         <p class="style23">Follow Us</p>
-      <p class="style23"><img src="/images/13927945851411675550.png" alt="facebook" width="30" height="30"><img src="/images/Linkedin 3D-2594-72.png" alt="linkedin" width="30" height="30"><img src="/images/933647245377878304.png" alt="twitter" width="30" height="30"><img src="/images/5030290271530270275.png" alt="youtube" width="30" height="30"></p></td>
+      <p class="style23">
+      	 <%= link_to image_tag("13927945851411675550.png", alt:"facebook", width:"25", height:"30"), 'https://www.facebook.com/' %>
+      	 <%= link_to image_tag("Linkedin 3D-2594-72.png", alt: "LinkedIn", width: "25",height: "30"), 'https://www.linkedin.com/' %>
+      	 <%= link_to image_tag("933647245377878304.png", alt: "twitter", width: "25",height: "30"), 'https://www.twitter.com/' %>
+      	 <%= link_to image_tag("5030290271530270275.png", alt: "youtube", width: "25",height: "30"), 'https://www.youtube.com/' %>
+      	 </p>
+      	 </td>
   </tr>
   <tr>
     <th width="180" height="199" valign="top" scope="row"><p>&nbsp;</p>
         <table width="170" border="0">
           <tr>
-            <th height="26" align="center" background="/images/menu_item_background.png" scope="row"><img src="/images/house.gif" alt="homepage" width="26" height="15"><span class="style22"><a href="home.html"> Home </a></span></th>
+            <th height="26" align="center" background="/assets/menu_item_background.png" scope="row">
+            	<%= image_tag("house.gif", alt:"home page", width:"25", height:"15") %>
+            	<span class="style22">
+            	<%= link_to "Home",    home_path %>
+            	</span>
+            	</th>
           </tr>
           <tr>
-            <th height="26" background="/images/menu_item_background.png" scope="row"><span class="style23"><img src="/images/contact.png" alt="contact" width="35" height="20"> <a href="contact.html">Contact Us </a></span></th>
+            <th height="26" background="/assets/menu_item_background.png" scope="row">
+            	<span class="style23">
+            		<%= image_tag("contact.png", alt:"Contact us", width:"35", height:"20") %>
+            		 <%= link_to "Contact Us",    contact_path %>
+            		 </span></th>
           </tr>
           <tr>
-            <th height="26" background="/images/menu_item_background.png" scope="row"><span class="style23"><img src="/images/aboutus.png" alt="about" width="35" height="20"> <a href="about.html">About Us </a></span></th>
+            <th height="26" background="/assets/menu_item_background.png" scope="row">
+            	<span class="style23">
+            		<%= image_tag("aboutus.png", alt:"About", width:"35", height:"20") %>
+            		 <%= link_to "About Us",    about_path %>
+            		 </span></th>
           </tr>
           <tr>
-            <th height="26" background="/images/menu_item_background.png" scope="row"><span class="style23"><img src="/images/career.png" alt="career" width="35" height="20"><a href="help.html">Help</a></span></th>
+            <th height="26" background="/assets/menu_item_background.png" scope="row">
+            	<span class="style23">
+            		<%= image_tag("career.png", alt:"career", width:"35", height:"20") %>
+            		<%= link_to "Help",    help_path %>
+            		</span></th>
           </tr>
       </table></th>
     <%= yield %>
     <tr>
-    <th height="106" valign="bottom" scope="row"><table width="180" height="34" border="0">
+    <th height="106" valign="bottom" scope="row">
+    	<table width="180" height="34" border="0">
       <tr>
-        <th background="/images/arrowbig_hover.png" scope="row"><span class="style23"><a href="home.html">Profile Click Here </a></span></th>
+        <th background="/assets/arrowbig_hover.png" scope="row"><span class="style23">
+        	<%= link_to "Profile Click Here",    home_path %> 
+        	</span></th>
       </tr>
-    </table></th>
+    </table
+</th>
   </tr>
   <tr bgcolor="#42769D">
-    <th colspan="3" scope="row"><span class="style13">Copyright &copy; 2012 carwebsite.com. All Rights reserved.</span></th>
+    <th colspan="3" scope="row">
+    	<span class="style13">
+    		Copyright &copy; 2012 carwebsite.com. All Rights reserved.
+    		</span>
+    		</th>
   </tr>
 </table>
 </body>

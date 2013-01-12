@@ -1,71 +1,58 @@
 require 'spec_helper'
-
 describe "Static pages" do
+  shared_examples_for "static_pages" do
+    it { page.should have_selector('a',    :text => page_link) }
+    it "should have the right title" do
+       page.should have_selector('title',
+                    :text => page_title)
+    end
+    it { page.should have_content(content) }
+    
+    it "should have the right links on the layout" do
+    click_link "About Us"
+    page.should have_selector('title',    :text => "About Us")
+    click_link "Help"
+    page.should have_selector('title',    :text => "Help")
+    click_link "Contact Us"
+    page.should have_selector('title',    :text => "Contact us")
+    click_link "Home"
+    page.should have_selector('title',    :text => "Home")
+    click_link "Register"
+    page.should have_selector('title',    :text => "Register")
+    click_link "Sign In"
+    page.should have_selector('title',    :text => "Home")
+  end
+  end
 
   describe "Home page" do
-
-    it "should have the content 'Welcome To Car Website'" do
-      visit '/static_pages/home'
-      page.should have_content('Welcome To Car Website')
-    end
-    it "should have the right title" do
-       visit '/static_pages/home'
-       page.should have_selector('title',
-                    :text => "|Home")
-    end
-    it "should have the a 'Home'" do
-      visit '/static_pages/home'
-      page.should have_selector('a', :text => 'Home')
-    end
+     before { visit home_path }
+    let(:page_link)    { 'Home' }
+    let(:page_title) { '|Home' }
+     let(:content) { 'Welcome To Car Website' }
+    it_should_behave_like "static_pages"
   end
+    
   describe "about page" do
-
-    it "should have the content 'About Us'" do
-      visit '/static_pages/home'
-      page.should have_content('About Us')
-    end
-    it "should have the right title" do
-       visit '/static_pages/about'
-       page.should have_selector('title',
-                    :text => "|About Us")
-    end
-    it "should have the a 'about us'" do
-      visit '/static_pages/about'
-      page.should have_selector('a', :text => 'About')
-    end
+     before { visit about_path }
+     let(:page_link)    { 'About' }
+     let(:page_title) { '|About Us' }
+     let(:content) { 'About Us' }
+     it_should_behave_like "static_pages"
   end
   describe "contact page" do
-
-    it "should have the content 'Our Contact Information'" do
-      visit '/static_pages/contact'
-      page.should have_content('Our Contact Information')
-    end
-    it "should have the right title" do
-       visit '/static_pages/contact'
-       page.should have_selector('title',
-                    :text => "|Contact us")
-    end
-    it "should have the a 'contact'" do
-      visit '/static_pages/contact'
-      page.should have_selector('a', :text => 'Contact_us')
-    end
+     before { visit contact_path }
+     let(:page_link)    { 'Contact' }
+     let(:page_title) { '|Contact us' }
+     let(:content) { 'Our Contact Information' }
+    it_should_behave_like "static_pages"
   end
 
   describe "Help page" do
-
-    it "should have the content 'Technical solution to your problems'" do
-      visit '/static_pages/help'
-      page.should have_content('Technical solution to your problems')
-    end
-    it "should have the right title" do
-       visit '/static_pages/help'
-       page.should have_selector('title',
-                    :text => "|Help")
-    end
-    it "should have the a 'Help'" do
-      visit '/static_pages/help'
-      page.should have_selector('a', :text => 'Help')
-    end
+     before { visit help_path }
+     let(:page_link)    { 'Help' }
+     let(:page_title) { '|Help' }
+     let(:content) { 'Technical solution to your problems' }
+    it_should_behave_like "static_pages"
   end
 
 end

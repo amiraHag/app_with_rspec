@@ -1,0 +1,29 @@
+<% provide(:title, 'Register') %>
+<% provide(:head_quote, 'Registration Form') %>       
+<td colspan="2" rowspan="2" align="left" valign="top"><p class="style24">You are here <%= link_to "Register",    '#' %> . 
+
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages' %>
+      <%= f.label :name %> <br/>
+      <%= f.text_field :name %><br/>
+
+      <%= f.label :email %><br/>
+      <%= f.text_field :email %>
+      <br/>
+      <%= f.label :telephone %><br/>
+      <%= f.text_field :telephone %>
+     <br/>
+      <%= f.label :address %><br/>
+      <%= f.text_field :address %>
+      <br/>
+      <%= f.label :password %><br/>
+      <%= f.password_field :password %>
+      <br/>
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <br/>
+      <%= f.password_field :password_confirmation %>
+      <br/>
+      <%= f.submit "Create New Account" %>
+    <% end %>
+ </p>
+      </tr>
