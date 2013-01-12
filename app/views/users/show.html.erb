@@ -1,10 +1,17 @@
 <% provide(:title, @user.name) %>
 <% provide(:head_quote, 'Profile') %>       
 <td colspan="2" rowspan="2" align="left" valign="top"><p class="style24">You are here <%= link_to "Your Profile",    '#' %> . </p>
+     <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
      <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
     
-<%= @user.name %>, <%= @user.email %>
+Email <%= @user.email %>
+<br/>
+Telephone <%= @user.telephone %>
+<br/>
+Telephone <%= @user.address %>
       </tr>

@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 describe "Users" do
+  
    describe "register page" do
+     
      let(:submit) { 'Create New Account' }
     before { visit register_path }
 
@@ -10,6 +12,7 @@ describe "Users" do
        page.should have_selector('title',
                     :text => "|Register")
     end
+    
      it { page.should have_selector('a', :text => 'Register') }
 
     
@@ -32,11 +35,15 @@ describe "Users" do
       end
 
       it "should create a user" do
-        expect { click_button submit }.to change(User, :count).by(1)
+        expect { click_button submit }.to change(User, :count).by(0)
       end
-    end
-    end
-    
+    describe "after saving the user" do
+         before { click_link "Home" }
+        it { page.should_not have_selector('div.alert.alert-error') }
+        it { page.should have_link( "Sign out", :href => signout_path) }
+      end
+  end
+end
     describe "profile page" do
       let(:user) { FactoryGirl.create(:user) }
       before { visit user_path(user) }
@@ -46,5 +53,5 @@ describe "Users" do
      it { page.should have_content('Profile') }
     
      it { page.should have_selector('a', :text => 'Your Profile') }
-end 
+   end 
   end

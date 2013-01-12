@@ -1,7 +1,13 @@
 AppWithRspec::Application.routes.draw do
+
+resources :sessions, only: [:new, :create, :destroy]
   
   resources :users
   match '/register', to: 'users#new'
+  
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+  
   match '/', to: 'static_pages#home'
   match '/home', to: 'static_pages#home'
   match '/contact', to: 'static_pages#contact'

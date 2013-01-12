@@ -20,7 +20,7 @@ describe "Static pages" do
     click_link "Register"
     page.should have_selector('title',    :text => "Register")
     click_link "Sign In"
-    page.should have_selector('title',    :text => "Home")
+    page.should have_selector('title',    :text => "Sign in")
   end
   end
 

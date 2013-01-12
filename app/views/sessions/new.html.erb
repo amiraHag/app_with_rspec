@@ -1,0 +1,25 @@
+<% provide(:title, "Sign in") %>
+<% provide(:head_quote, 'Sign in') %>       
+<td colspan="2" rowspan="2" align="left" valign="top"><p class="style24">You are here <%= link_to "SignIn",    '#' %> . </p>
+    <h1>Sign in</h1>
+    </p>
+   <p style="color: red">
+  	
+    	<% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+      </p>
+      
+    <%= form_for(:session, url: sessions_path) do |f| %>
+
+      <%= f.label :email %><br/>
+      <%= f.text_field :email %>
+<br/>
+      <%= f.label :password %><br/>
+      <%= f.password_field :password %>
+<br/>
+      <%= f.submit "Sign in" %>
+    <% end %>
+
+    <p>New user? <%= link_to "Register now", register_path %></p>
+      </tr>
