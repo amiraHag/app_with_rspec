@@ -40,7 +40,6 @@ describe "Users" do
     describe "after saving the user" do
          before { click_link "Home" }
         it { page.should_not have_selector('div.alert.alert-error') }
-        it { page.should have_link( "Sign out", :href => signout_path) }
       end
   end
 end
