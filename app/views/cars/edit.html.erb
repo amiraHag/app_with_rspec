@@ -5,12 +5,16 @@
     		You are here 
     		<%= link_to "Edit Car",    '#' %>.
     		</p>
+    		<% if signed_in? %>
       <h1>Editing car</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @car %> |
 <%= link_to 'Back', cars_path %>
+<% else %>
+please  <%= link_to "Sign In",    signin_path %> or <%= link_to "Register",    register_path %>
+ <% end %>
 </td>
   </tr>
  

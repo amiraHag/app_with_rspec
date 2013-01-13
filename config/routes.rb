@@ -13,7 +13,7 @@ resources :sessions, only: [:new, :create, :destroy]
   
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
-  
+    match '/allcars', to: 'cars#index'
   match '/', to: 'static_pages#home'
   match '/home', to: 'static_pages#home'
   match '/contact', to: 'static_pages#contact'

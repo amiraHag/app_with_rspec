@@ -5,12 +5,16 @@
     		You are here 
     		<%= link_to "Help",    '#' %>.
     		</p>
+    		<% if signed_in? %>
     		<h1>Editing complain</h1>
 
       <%= render 'form' %>
 
      <%= link_to 'Show', @complain %> |
      <%= link_to 'Back', complains_path %>
+<% else %>
+please  <%= link_to "Sign In",    signin_path %> or <%= link_to "Register",    register_path %>
+ <% end %>
 </td>
   </tr>
  

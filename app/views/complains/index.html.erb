@@ -35,6 +35,8 @@
 <br />
 
 <%= link_to 'New Complain', new_complain_path %>
+<% else %>
+please  <%= link_to "Sign In",    signin_path %> or <%= link_to "Register",    register_path %>
  <% end %>
 </td>
   </tr>

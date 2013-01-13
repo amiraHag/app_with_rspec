@@ -7,8 +7,14 @@
     		 <%= link_to "Home",    '#' %>.
     		 </p>
    <br/>
-   You can sign in if you already had an account <br/>
-    or Register if this is your first time <br/>
+   <% if signed_in? %>
+   <h1><%= link_to 'All Available Cars', allcars_path %></h1>
+   <% else %>
+   <h1><%= link_to 'All Available Cars', home_path %></h1>
+ <% end %>
+   
+   You can <%= link_to "Sign In",    signin_path %> if you already had an account <br/>
+    or <%= link_to "Register",    register_path %> if this is your first time <br/>
     <h2 class="style24">
     To be able to see our product  
     </h2>	

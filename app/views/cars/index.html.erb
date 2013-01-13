@@ -38,6 +38,8 @@
 <br />
 
 <%= link_to 'New Car', new_car_path %>
+<% else %>
+please  <%= link_to "Sign In",    signin_path %> or <%= link_to "Register",    register_path %>
  <% end %>
 </td>
   </tr>
