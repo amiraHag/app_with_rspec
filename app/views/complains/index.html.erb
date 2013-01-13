@@ -1,0 +1,29 @@
+<h1>Listing complains</h1>
+
+<table>
+  <tr>
+    <th>Subject</th>
+    <th>Detail</th>
+    <th>Solution</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @complains.each do |complain| %>
+  <tr>
+    <td><%= complain.subject %></td>
+    <td><%= complain.detail %></td>
+    <td><%= complain.solution %></td>
+    <td><%= complain.user_id %></td>
+    <td><%= link_to 'Show', complain %></td>
+    <td><%= link_to 'Edit', edit_complain_path(complain) %></td>
+    <td><%= link_to 'Destroy', complain, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Complain', new_complain_path %>

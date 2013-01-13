@@ -1,5 +1,11 @@
 AppWithRspec::Application.routes.draw do
 
+  resources :cars
+
+
+  resources :complains
+
+
 resources :sessions, only: [:new, :create, :destroy]
   
   resources :users
