@@ -24,7 +24,7 @@ AppWithRspec::Application.configure do
   # and use secure cookies.
   #add ssl 
   config.force_ssl = true
-::ActiveSupport::Deprecation.silenced = true
+  ::ActiveSupport::Deprecation.silenced = true
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 
