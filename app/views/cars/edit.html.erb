@@ -1,6 +1,16 @@
-<h1>Editing car</h1>
+<% provide(:title, 'Editing car') %>
+<% provide(:head_quote, 'Editing specific car') %> 
+    <td colspan="2" rowspan="2" align="left" valign="top">
+    	<p class="style24">
+    		You are here 
+    		<%= link_to "Edit Car",    '#' %>.
+    		</p>
+      <h1>Editing car</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @car %> |
 <%= link_to 'Back', cars_path %>
+</td>
+  </tr>
+ 

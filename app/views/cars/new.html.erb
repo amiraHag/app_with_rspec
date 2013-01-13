@@ -1,5 +1,19 @@
-<h1>New car</h1>
+<% provide(:title, 'New car') %>
+<% provide(:head_quote, 'Adding New car To Publish') %> 
+    <td colspan="2" rowspan="2" align="left" valign="top">
+    	<p class="style24">
+    		You are here 
+    		<%= link_to "New Car",    '#' %>.
+    		</p>
+     <% if signed_in? %>
+      <h1>New car</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Back', cars_path %>
+<% else %>
+Please <%= link_to "Sign In",    signin_path %> or <%= link_to "Register",    register_path %> to be able to add new car 
+<% end %>
+</td>
+  </tr>
+ 

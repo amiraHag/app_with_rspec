@@ -1,4 +1,11 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, 'Specific Car') %>
+<% provide(:head_quote, 'Details About Car') %> 
+    <td colspan="2" rowspan="2" align="left" valign="top">
+    	<p class="style24">
+    		You are here 
+    		<%= link_to "specific car",    '#' %>.
+    		</p>
+     <p id="notice"><%= notice %></p>
 
 <p>
   <b>Carmodel:</b>
@@ -33,3 +40,6 @@
 
 <%= link_to 'Edit', edit_car_path(@car) %> |
 <%= link_to 'Back', cars_path %>
+</td>
+  </tr>
+ 

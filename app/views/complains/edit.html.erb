@@ -1,6 +1,16 @@
-<h1>Editing complain</h1>
+<% provide(:title, 'Editing complain') %>
+<% provide(:head_quote, 'Technical solution to your problems') %> 
+    <td colspan="2" rowspan="2" align="left" valign="top">
+    	<p class="style24">
+    		You are here 
+    		<%= link_to "Help",    '#' %>.
+    		</p>
+    		<h1>Editing complain</h1>
 
-<%= render 'form' %>
+      <%= render 'form' %>
 
-<%= link_to 'Show', @complain %> |
-<%= link_to 'Back', complains_path %>
+     <%= link_to 'Show', @complain %> |
+     <%= link_to 'Back', complains_path %>
+</td>
+  </tr>
+ 

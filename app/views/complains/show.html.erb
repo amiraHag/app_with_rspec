@@ -1,4 +1,11 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, 'Help') %>
+<% provide(:head_quote, 'Technical solution to your problems') %> 
+    <td colspan="2" rowspan="2" align="left" valign="top">
+    	<p class="style24">
+    		You are here 
+    		<%= link_to "Help",    '#' %>.
+    		</p>
+      <p id="notice"><%= notice %></p>
 
 <p>
   <b>Subject:</b>
@@ -23,3 +30,6 @@
 
 <%= link_to 'Edit', edit_complain_path(@complain) %> |
 <%= link_to 'Back', complains_path %>
+</td>
+  </tr>
+ 

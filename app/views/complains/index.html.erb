@@ -1,14 +1,19 @@
-<h1>Listing complains</h1>
-
-<table>
+<% provide(:title, 'Help') %>
+<% provide(:head_quote, 'Technical solution to your problems') %> 
+    <td colspan="2" rowspan="2" align="left" valign="top">
+    	<p class="style24">
+    		You are here 
+    		<%= link_to "Help",    '#' %>.
+    		</p>
+     <% if signed_in? %>
+     <table  bgcolor="EECCEE" border="4px">
   <tr>
     <th>Subject</th>
     <th>Detail</th>
     <th>Solution</th>
     <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th  colspan="3"></th>
+    
   </tr>
 
 <% @complains.each do |complain| %>
@@ -18,12 +23,19 @@
     <td><%= complain.solution %></td>
     <td><%= complain.user_id %></td>
     <td><%= link_to 'Show', complain %></td>
-    <td><%= link_to 'Edit', edit_complain_path(complain) %></td>
-    <td><%= link_to 'Destroy', complain, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+    
+    <td><% if false %><%= link_to 'Edit', edit_complain_path(complain) %> <% end %></td>
+   <td><% if false %>
+   	<%= link_to 'Destroy', complain, method: :delete, data: { confirm: 'Are you sure?' } %> 
+   	<% end %></td>
+   
 <% end %>
 </table>
 
 <br />
 
 <%= link_to 'New Complain', new_complain_path %>
+ <% end %>
+</td>
+  </tr>
+

@@ -1,6 +1,6 @@
 <% provide(:title, 'Register') %>
-<% provide(:head_quote, 'Registration Form') %>       
-<td colspan="2" rowspan="2" align="left" valign="top"><p class="style24">You are here <%= link_to "Register",    '#' %> . 
+<% provide(:head_quote, 'Registration Form') %>
+<td colspan="2" rowspan="2" align="left" valign="top"><p class="style24">You are here <%= link_to "Register", '#' %> .
 
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
