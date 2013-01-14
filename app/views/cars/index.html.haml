@@ -1,0 +1,23 @@
+%h1 All Cars
+= form_tag cars_path, :id => 'carmodels_form', :method => :get do
+  Include:
+  - @all_carmodels.each do |carmodel|
+    = carmodel
+    = check_box_tag "carmodels[#{carmodel}]",true,@carmodels[carmodel],:id => "carmodels_#{carmodel}"
+  = submit_tag 'Refresh', :id => 'carmodels_submit'
+%table#movies
+  %thead
+    %tr
+      %th{:class => ('hilite' unless !(@sort_by == 'price')) }= link_to 'Car Price', cars_path(:sort_by => 'price', :carmodels => @carmodels), :id => 'price_header'
+      %th Car model
+      %th{:class => ('hilite' unless !(@sort_by == 'myear'))}= link_to 'manufacture date', cars_path(:sort_by => 'myear', :carmodels => @carmodels), :id => 'manufacture_date_header'
+      %th More Info
+  %tbody
+    - @cars.each do |car|
+      %tr
+        %td= car.price 
+        %td= car.carmodel
+        %td= car.myear
+        %td= link_to "More about #{car.price}", car_path(car)
+
+= link_to 'Add new car', new_car_path
