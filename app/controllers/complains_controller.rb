@@ -2,8 +2,9 @@ class ComplainsController < ApplicationController
   # GET /complains
   # GET /complains.json
   def index
-    @complains = Complain.all
-
+    @search = Complain.search(params[:q])
+    @complains = @search.result 
+     @search.build_condition
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @complains }

@@ -5,21 +5,51 @@
     		You are here 
     		<%= link_to "All cars",    '#' %>.
     		</p>
-    		<% if signed_in? %>
-      <h1>Listing cars</h1>
 
-<table bgcolor="EECCEE" border="4px">
+<%= search_form_for @search do |f| %>
+<h2>Static filters</h2>
+  <div class="field">
+    <%= f.label :carmodel_cont, "Car Model" %><br/>
+    <%= f.text_field :carmodel_cont %>
+  </div>
+  <div class="field">
+  	
+    <%= f.label :price_gteq, "Price between"%><br/>
+    <%= f.text_field :price_gteq %>
+    <%= f.label :price_lteq, "* and *" %>
+    <%= f.text_field :price_lteq %>    
+  </div>
+  <h2>Dynamic filters</h2>
+  <%= f.condition_fields do |c| %>
+  <div class="field">
+    <%= c.attribute_fields do |a| %>
+      
+
+<%= a.attribute_select associations: [:user] %>
+
+    <% end %>
+    <%= c.predicate_select %>
+    <%= c.value_fields do |v| %>
+      <%= v.text_field :value %>
+    <% end %>
+    </div>
+  <% end %>
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>
+
+
+<table bgcolor="00CCEE" border="4px">
   <tr>
-    <th>Carmodel</th>
-    <th>Price</th>
-    <th>Myear</th>
-    <th>Uyear</th>
-    <th>Cartype</th>
-    <th>User</th>
-    <th colspan="3"></th>
+    <th><%= sort_link(@search, :carmodel, "Car Model") %></th>
+    <th><%= sort_link(@search, :price, "Price") %></th>
+    <th><%= sort_link(@search, :myear, "Manufacture Year") %></th>
+    <th><%= sort_link(@search, :uyear, "Used Year") %></th>
+    <th><%= sort_link(@search, :cartype, "Car Type") %></th>
+    <th><%= sort_link(@search, :user_id, "User ID") %></th>
+    <th colspan="3"> More Info</th>
    
   </tr>
-
+<% if signed_in? %>
 <% @cars.each do |car| %>
   <tr>
     <td><%= car.carmodel %></td>
@@ -33,14 +63,14 @@
     <td><% if false %><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
   </tr>
 <% end %>
+<% end %>
 </table>
 
 <br />
-
+<% if signed_in? %>
 <%= link_to 'New Car', new_car_path %>
 <% else %>
 please  <%= link_to "Sign In",    signin_path %> or <%= link_to "Register",    register_path %>
  <% end %>
 </td>
   </tr>
- 
