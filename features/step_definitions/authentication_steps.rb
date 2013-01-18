@@ -22,9 +22,28 @@ When /^the user submits valid signin information$/ do
 end
 
 Then /^he should see his profile page$/ do
-  page.should have_selector('title', text: @user.name)
+  page.should have_selector('title', text: "Example User")
+end
+
+
+Given /^a user visits the register page$/ do
+  visit register_path
+end
+
+When /^he submits invalid register information$/ do
+  click_button "Create New Account"
+end
+
+Then /^he should see a rgisteration error message$/ do
+ page.should have_selector('title', text:"Register")
+end
+
+When /^the user submits valid registeration information$/ do
+  fill_in "Email",    with: "user@example.com"
+  fill_in "Password", with: "foobar" 
+  click_button "Create New Account"
 end
 
 Then /^he should see a signout link$/ do
-  page.should have_link('Sign out', href: signout_path)
+  page.should have_link('Sign out',:href => signout_path)
 end

@@ -5,7 +5,7 @@
     		You are here 
     		<%= link_to "specific car",    '#' %>.
     		</p>
-    <% if signed_in? %>
+  
      <p id="notice"><%= notice %></p>
 
 <p>
@@ -38,12 +38,13 @@
   <%= @car.user_id %>
 </p>
 
-
+  <% if signed_in? %>
 <%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back', cars_path %>
+
 <% else %>
-please  <%= link_to "Sign In",    signin_path %> or <%= link_to "Register",    register_path %>
+please  <%= link_to "Sign In",    signin_path %> or <%= link_to "Register",    register_path %>|
  <% end %>
+ <%= link_to 'Back', cars_path %>
 </td>
   </tr>
  

@@ -30,7 +30,7 @@
   <% end %>
   <div class="actions"><%= f.submit "Search" %></div>
 <% end %>
-     <% if signed_in? %>
+    
      <table  bgcolor="EECCEE" border="4px">
   <tr>
   	<th><%= sort_link(@search, :subject, "Subject") %></th>
@@ -48,8 +48,8 @@
     <td><%= complain.user_id %></td>
     <td><%= link_to 'Show', complain %></td>
     
-    <td><% if false %><%= link_to 'Edit', edit_complain_path(complain) %> <% end %></td>
-   <td><% if false %>
+    <td> <% if signed_in? %><%= link_to 'Edit', edit_complain_path(complain) %> <% end %></td>
+   <td> <% if signed_in? %>
    	<%= link_to 'Destroy', complain, method: :delete, data: { confirm: 'Are you sure?' } %> 
    	<% end %></td>
    
@@ -57,7 +57,7 @@
 </table>
 
 <br />
-
+<% if signed_in? %>
 <%= link_to 'New Complain', new_complain_path %>
 <% else %>
 please  <%= link_to "Sign In",    signin_path %> or <%= link_to "Register",    register_path %>

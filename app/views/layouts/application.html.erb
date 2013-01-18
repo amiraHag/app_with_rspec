@@ -68,9 +68,34 @@
             <th height="26" background="/assets/menu_item_background.png" scope="row">
             	<span class="style23">
             		<%= image_tag("career.png", alt:"career", width:"35", height:"20") %>
-            		<%= link_to "Help",    help_path %>
+            		<%= link_to "All Cars",    allcars_path %>
             		</span></th>
           </tr>
+          <% if signed_in? %>
+          <tr>
+            <th height="26" background="/assets/menu_item_background.png" scope="row">
+            	<span class="style23">
+            		<%= image_tag("career.png", alt:"career", width:"35", height:"20") %>
+            		<%= link_to 'New Car', new_car_path %>
+            		</span></th>
+          </tr>
+          <% end %>
+          <tr>
+            <th height="26" background="/assets/menu_item_background.png" scope="row">
+            	<span class="style23">
+            		<%= image_tag("career.png", alt:"career", width:"35", height:"20") %>
+            		<%= link_to "Complains",    help_path %>
+            		</span></th>
+          </tr>
+          <% if signed_in? %>
+          <tr>
+            <th height="26" background="/assets/menu_item_background.png" scope="row">
+            	<span class="style23">
+            		<%= image_tag("career.png", alt:"career", width:"35", height:"20") %>
+            		<%= link_to 'New Complain', new_complain_path %>
+            		</span></th>
+          </tr>
+           <% end %>
       </table></th>
     <%= yield %>
     <tr>
@@ -91,7 +116,7 @@
   <tr bgcolor="#42769D">
   	<th scope="row">
     	<span class="style13">
-    		<%= link_to "Users", '#' %>
+    		<%= link_to "Cars", allcars_path %>
     		</span>
     		</th>
     <th colspan="2" scope="row">

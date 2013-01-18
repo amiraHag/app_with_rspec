@@ -19,10 +19,12 @@
     <%= f.label :detail %><br />
     <%= f.text_field :detail %>
   </div>
+  <% if signed_in? %>
   <div class="field">
     <%= f.label :solution %><br />
     <%= f.text_field :solution %>
   </div>
+ <% end %>
   <div class="field">
     <%= f.label :user_id %><br />
     <%= f.number_field :user_id %>

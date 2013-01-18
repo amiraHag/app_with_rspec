@@ -2,6 +2,7 @@ class Car < ActiveRecord::Base
   attr_accessible :carmodel, :cartype, :myear, :price, :user_id, :uyear
   belongs_to :user
   validates_presence_of :user_id
+  validates :user_id, presence: true, length: { :maximum => 1  } , numericality: true 
   validates(:carmodel, presence: true, length: { :maximum => 30 })
   validates :price, presence: true, length: { :maximum => 10 } , numericality: true 
   validates(:cartype, presence: true, length: { :maximum => 30 })

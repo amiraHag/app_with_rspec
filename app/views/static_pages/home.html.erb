@@ -7,17 +7,18 @@
     		 <%= link_to "Home",    '#' %>.
     		 </p>
    <br/>
-   <% if signed_in? %>
-   <h1><%= link_to 'All Available Cars', allcars_path %></h1>
-   <% else %>
-   <h1><%= link_to 'All Available Cars', home_path %></h1>
- <% end %>
    
+   <h1><%= link_to 'All Available Cars', allcars_path %></h1>
+   <h1><%= link_to 'All Problems ', help_path %></h1>
+   <% if signed_in? %>
+   <% else %>
    You can <%= link_to "Sign In",    signin_path %> if you already had an account <br/>
     or <%= link_to "Register",    register_path %> if this is your first time <br/>
     <h2 class="style24">
-    To be able to see our product  
-    </h2>	
+    To be able to be able to add new car or edit or deleting existing one 
+    or be able to edit or delet existing complain 
+    </h2>
+    <% end %>	
     </td>
  
   </tr>
