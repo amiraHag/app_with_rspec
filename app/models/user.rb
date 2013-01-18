@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :complains
   has_secure_password
   before_save :create_remember_token
-  User.all.each{|user| user.save(validate:false)}
+ #User.all.each{|user| user.save(validate:false)}
   before_save { |user| user.email = email.downcase }
   
 validates(:name, presence: true , length: { :maximum => 30 })
